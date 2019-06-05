@@ -5,71 +5,71 @@
 #include <math.h>
 #include <gmp.h>
 
+#define PRECISION 100000
+
 int main (int argc, char* argv[])
 {
     double aux;
     double aux_2;
 
     mpf_t a_current;
-    mpf_init2 (a_current, 50000);
-    aux = 1.0;
-    mpf_set_d (a_current, aux);
+    mpf_init2 (a_current, PRECISION);
+    mpf_set_d (a_current, 1.0);
 
     mpf_t b_current;
-    mpf_init2 (b_current, 50000);
-    aux = pow(sqrt(2),-1);
-    mpf_set_d (b_current, aux);
+    mpf_init2 (b_current, PRECISION);
+    mpf_set_d (b_current, 2.0);
+    mpf_sqrt(b_current, b_current);
+    mpf_ui_div(b_current, 1.0, b_current);
 
     mpf_t t_current;
-    mpf_init2 (t_current, 50000);
-    aux = pow(4,-1);
-    mpf_set_d (t_current, aux);
+    mpf_init2 (t_current, PRECISION);
+    mpf_set_d (t_current, 4.0);
+    mpf_ui_div(t_current, 1.0, t_current);
 
     mpf_t p_current;
-    mpf_init2 (p_current, 50000);
-    aux = 1.0;
-    mpf_set_si (p_current, aux);
+    mpf_init2 (p_current, PRECISION);
+    mpf_set_d (p_current, 1.0);
 
     printf("a0:");
-    mpf_out_str(stdout,10,50000,a_current);
+    mpf_out_str(stdout,10,6,a_current);
     printf("\nb0:");
-    mpf_out_str(stdout,10,50000,b_current);
+    mpf_out_str(stdout,10,6,b_current);
     printf("\nt0:");
-    mpf_out_str(stdout,10,50000,t_current);
+    mpf_out_str(stdout,10,6,t_current);
     printf("\np0:");
-    mpf_out_str(stdout,10,50000,p_current);
+    mpf_out_str(stdout,10,6,p_current);
     printf("\n");
 
     mpf_t a_next;
-    mpf_init2 (a_next, 50000);
+    mpf_init2 (a_next, PRECISION);
 
     mpf_t b_next;
-    mpf_init2 (b_next, 50000);
+    mpf_init2 (b_next, PRECISION);
 
     mpf_t t_next;
-    mpf_init2 (t_next, 50000);
+    mpf_init2 (t_next, PRECISION);
 
     mpf_t p_next;
-    mpf_init2 (p_next, 50000);
+    mpf_init2 (p_next, PRECISION);
 
     printf("a_next:");
-    mpf_out_str(stdout,10,50000,a_next);
+    mpf_out_str(stdout,10,6,a_next);
     printf("\nb_next:");
-    mpf_out_str(stdout,10,50000,b_next);
+    mpf_out_str(stdout,10,6,b_next);
     printf("\nt_next:");
-    mpf_out_str(stdout,10,50000,t_next);
+    mpf_out_str(stdout,10,6,t_next);
     printf("\np_next:");
-    mpf_out_str(stdout,10,50000,p_next);
+    mpf_out_str(stdout,10,6,p_next);
     printf("\n");
-
-    
-    int iteracoes = pow(10,7);
+ 
+    int iteracoes = pow(10,2);
     int i;
 
     mpf_t float_aux;
-    mpf_init2 (float_aux, 50000);
+    mpf_init2 (float_aux, PRECISION);
     mpf_t float_aux2;
-    mpf_init2 (float_aux2, 50000);
+    mpf_init2 (float_aux2, PRECISION);
 
     for(i=0; i<iteracoes; i++)
     {
@@ -93,7 +93,7 @@ int main (int argc, char* argv[])
     }
 
     mpf_t pi;
-    mpf_init2 (pi, 50000);
+    mpf_init2 (pi, PRECISION);
 
     mpf_add(float_aux, a_current, b_current);
     mpf_pow_ui(float_aux, float_aux, 2);
@@ -101,7 +101,7 @@ int main (int argc, char* argv[])
     mpf_div(pi, float_aux, float_aux2);
 
     printf("VALOR DO PI:");
-    mpf_out_str(stdout,10,50000,pi);
+    mpf_out_str(stdout,10,6,pi);
     printf("\n");
 
     mpf_clear(a_current);
