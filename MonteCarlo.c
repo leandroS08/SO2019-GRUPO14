@@ -20,7 +20,7 @@ double monteCarlo(int iter){
 }
 
 int main(){
-    double p = 1000000000;
+    double p = 1000000;
     srand(time(NULL));
     double pi = monteCarlo(p);
     printf("OLHA QUE VALOR XUXU DE PI: %lf\n", pi);

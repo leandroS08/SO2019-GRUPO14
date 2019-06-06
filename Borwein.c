@@ -2,7 +2,7 @@
 #include<math.h>
  
 double pi = 0.0;
-double k, p = 1000000000;
+double k, p = 100;
 
 int main(){
     for(k = 0; k < p; k++){
