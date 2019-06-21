@@ -10,7 +10,7 @@
 int main()
 {
     srand(time(NULL));
-    int iteracoes = pow(10,8);
+    int iteracoes = pow(10,2);
     int i;
     
     mpf_t pi;
@@ -59,7 +59,7 @@ int main()
     mpf_mul_ui (pi, pi, 4.0);
 
     printf("VALOR DO PI:");
-    mpf_out_str(stdout,10,6,pi);
+    mpf_out_str(stdout,10,7,pi);
     printf("\n");
 
     return 0;

@@ -7,7 +7,7 @@
 int main()
 {
     int k, i;
-    int iteracoes = pow(10,5);
+    int iteracoes = pow(10,6);
     
     mpf_t pi;
     mpf_init2 (pi, PRECISION);
@@ -84,7 +84,7 @@ int main()
     }
 
     printf("VALOR DO PI:");
-    mpf_out_str(stdout,10,6,pi);
+    mpf_out_str(stdout,10,7,pi);
     printf("\n");
 
     return 0;
