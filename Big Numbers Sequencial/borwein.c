@@ -7,7 +7,7 @@
 int main()
 {
     int k, i;
-    int iteracoes = pow(10,9);
+    int iteracoes = pow(10,5);
     
     mpf_t pi;
     mpf_init2 (pi, PRECISION);

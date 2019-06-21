@@ -10,7 +10,7 @@
 int main()
 {
     srand(time(NULL));
-    int iteracoes = pow(10,6);
+    int iteracoes = pow(10,8);
     int i;
     
     mpf_t pi;
