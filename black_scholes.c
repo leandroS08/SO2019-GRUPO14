@@ -10,12 +10,12 @@ double blackScholes()
     int M;
 
     //scanf("%lf %lf %lf %lf %lf %d ", &S, &E, &r, &sigma, &T, &M);
-    S = 2.0;
-    E = 2.0;
-    r = 2.0;
-    sigma = 2.0;
-    T = 2.0;
-    M = 100;
+    S = 100.0;
+    E = 110.0;
+    r = 10.0;
+    sigma = 1.0;
+    T = 1.0;
+    M = 100000;
 
     double *trials = (double*) calloc(M, sizeof(double));
 
@@ -24,7 +24,7 @@ double blackScholes()
     for(i=0; i<M; i++)
     {
         aux = ((double)rand()/(double)RAND_MAX);
-        t = S * exp( ( ( r - ( 0.5 * pow(sigma, 2) ) ) * T ) + (sigma*sqrt(T)*aux) );
+        t = S * exp( ( ( r - ( 0.5*pow(sigma, 2) ) ) * T ) + (sigma*sqrt(T)*aux) );
 
         if(t-E > 0) 
             trials[i] = exp( (-r)*T ) * (t-E);
@@ -36,9 +36,9 @@ double blackScholes()
 
     for(i=0; i<M; i++)
         aux_mean += trials[i];
-    mean = aux_mean / (double) M;
+    mean = aux_mean / (double)M;
 
-    double stddev, aux_stddev; 
+    double stddev, aux_stddev = 0; 
     for(i=0; i<M; i++)
         aux_stddev += pow(trials[i] - mean, 2);
     stddev = sqrt( aux_stddev / (double)M );
