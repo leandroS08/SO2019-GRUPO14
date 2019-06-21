@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include<pthread.h>
 #include <math.h>
 #include <time.h>
 
@@ -8,18 +7,24 @@ double blackScholes()
 {
     double S, E, r, sigma, T;
     int M;
+    int i;
 
-    //scanf("%lf %lf %lf %lf %lf %d ", &S, &E, &r, &sigma, &T, &M);
-    S = 100.0;
-    E = 110.0;
-    r = 10.0;
-    sigma = 1.0;
-    T = 1.0;
-    M = 100000;
+    FILE *myfile = fopen("entrada_blackscholes.txt", "r");;
+    for(i=0; i<6; i++)
+    {
+        if(i==0) fscanf(myfile,"%lf",&S);
+        if(i==1) fscanf(myfile,"%lf",&E);
+        if(i==2) fscanf(myfile,"%lf",&r);
+        if(i==3) fscanf(myfile,"%lf",&sigma);
+        if(i==4) fscanf(myfile,"%lf",&T);
+        if(i==5) fscanf(myfile,"%d",&M);
+    }
+    fclose(myfile);
+
+    //printf(" Entrada: ( S = %.2lf, E = %.2lf, r = %.2lf, sigma = %.2lf, T = %.2lf, M = %d ) \n", S, E, r, sigma, T, M);
 
     double *trials = (double*) calloc(M, sizeof(double));
 
-    int i;
     double t, aux; 
     for(i=0; i<M; i++)
     {
@@ -47,7 +52,9 @@ double blackScholes()
     double conf_min = mean - conf_widht;
     double conf_max = mean + conf_widht;
 
-    printf("Range:  ( %lf ; %lf ) \n", conf_min, conf_max);
+    printf(" Saida: ( %lf ; %lf ) \n", conf_min, conf_max);
+
+    free(trials);
 }
 
 int main()
