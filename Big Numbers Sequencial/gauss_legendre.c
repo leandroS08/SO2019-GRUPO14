@@ -31,15 +31,6 @@ int main (int argc, char* argv[])
     mpf_init2 (p_current, PRECISION);
     mpf_set_d (p_current, 1.0);
 
-    /*printf("a0:");
-    mpf_out_str(stdout,10,6,a_current);
-    printf("\nb0:");
-    mpf_out_str(stdout,10,6,b_current);
-    printf("\nt0:");
-    mpf_out_str(stdout,10,6,t_current);
-    printf("\np0:");
-    mpf_out_str(stdout,10,6,p_current);
-    printf("\n");*/
 
     mpf_t a_next;
     mpf_init2 (a_next, PRECISION);
@@ -52,16 +43,6 @@ int main (int argc, char* argv[])
 
     mpf_t p_next;
     mpf_init2 (p_next, PRECISION);
-
-    /*printf("a_next:");
-    mpf_out_str(stdout,10,6,a_next);
-    printf("\nb_next:");
-    mpf_out_str(stdout,10,6,b_next);
-    printf("\nt_next:");
-    mpf_out_str(stdout,10,6,t_next);
-    printf("\np_next:");
-    mpf_out_str(stdout,10,6,p_next);
-    printf("\n");*/
 
     mpf_t float_aux;
     mpf_init2 (float_aux, PRECISION);
