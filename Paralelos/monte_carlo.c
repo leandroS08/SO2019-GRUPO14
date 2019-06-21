@@ -5,6 +5,7 @@
 #include <time.h>
 #include <gmp.h>
 
+
 #define PRECISION 256
 
 mpf_t pi;
@@ -15,15 +16,19 @@ void *myfunc(void *myvar);
 int main()
 {
     srand(time(NULL));
-    int iteracoes = pow(10,4);
+    int iteracoes = pow(10,5);
     int i, k, j;
     int THREADS_MAX = 10;
+
+    pthread_t threads[THREADS_MAX];
+    double thread_args[THREADS_MAX];
 
     mpf_init2 (pi, PRECISION);
     mpf_set_d (pi, 0.0);
 
-    pthread_t threads[THREADS_MAX];
-    double thread_args[THREADS_MAX];
+    mpf_init2 (ki, PRECISION);
+    mpf_set_d (ki, 0.0);
+
 
 
     mpf_init2 (pi, PRECISION);
@@ -35,7 +40,7 @@ int main()
         for (i = 0; i < THREADS_MAX; i++){
             thread_args[i] = j;
             j = j + 1.0;
-            printf("Valor enviado para a thread: %d\n", i);
+           // printf("Valor enviado para a thread: %d\n", i);
             pthread_create(&threads[i], NULL, myfunc, (void *) &thread_args[i]);
         }
         for (i = 0; i < THREADS_MAX; i++){
@@ -43,7 +48,7 @@ int main()
         }
     }
 
-    mpf_div_ui (pi, ki, i);
+    mpf_div_ui (pi, ki, iteracoes);
     mpf_mul_ui (pi, pi, 4.0);
 
     printf("VALOR DO PI:");
@@ -60,8 +65,6 @@ void *myfunc(void *myvar){
     double k = *end;
     int i;
 
-    mpf_init2 (ki, PRECISION);
-    mpf_set_d (ki, 0.0);
 
     mpf_t x;
     mpf_init2 (x, PRECISION);
