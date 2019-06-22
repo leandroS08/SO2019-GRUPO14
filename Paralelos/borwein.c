@@ -14,7 +14,7 @@ int main()
 {
     int k, i, j;
     int iteracoes = pow(10,3);
-    int THREADS_MAX = 10cd;
+    int THREADS_MAX = 10;
 
     mpf_init2 (pi, PRECISION);
     mpf_set_d (pi, 0.0);
