@@ -16,7 +16,7 @@ void *myfunc(void *myvar);
 int main()
 {
     srand(time(NULL));
-    int iteracoes = pow(10,5);
+    int iteracoes = pow(10,3);
     int i, k, j;
     int THREADS_MAX = 10;
 
@@ -28,8 +28,6 @@ int main()
 
     mpf_init2 (ki, PRECISION);
     mpf_set_d (ki, 0.0);
-
-
 
     mpf_init2 (pi, PRECISION);
     mpf_set_d (pi, 0.0);

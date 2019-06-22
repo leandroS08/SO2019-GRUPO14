@@ -14,7 +14,7 @@ int main()
 {
     int k, i, j;
     int iteracoes = pow(10,3);
-    int THREADS_MAX = 10;
+    int THREADS_MAX = 10cd;
 
     mpf_init2 (pi, PRECISION);
     mpf_set_d (pi, 0.0);
@@ -27,7 +27,7 @@ int main()
         for (i = 0; i < THREADS_MAX; i++){
             thread_args[i] = j;
             j = j + 1.0;
-            printf("Valor enviado para a thread: %d\n", i);
+            //printf("Valor enviado para a thread: %d\n", i);
             pthread_create(&threads[i], NULL, myfunc, (void *) &thread_args[i]);
         }
         for (i = 0; i < THREADS_MAX; i++){
