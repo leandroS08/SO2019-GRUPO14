@@ -36,7 +36,7 @@ int main()
     }
 
     printf("VALOR DO PI:");
-    mpf_out_str(stdout,10,6,pi);
+    mpf_out_str(stdout,10,7,pi);
     printf("\n");
     
     return 0;

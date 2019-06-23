@@ -16,9 +16,9 @@ void *myfunc(void *myvar);
 int main()
 {
     srand(time(NULL));
-    int iteracoes = pow(10,5);
+    int iteracoes = pow(10,7);
     int i, k, j;
-    int THREADS_MAX = 10;
+    int THREADS_MAX = 1000;
 
     pthread_t threads[THREADS_MAX];
     double thread_args[THREADS_MAX];

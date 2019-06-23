@@ -6,7 +6,7 @@
 #include <gmp.h>
 #include <pthread.h>
 
-#define PRECISION 100000
+#define PRECISION 1000000000
 
 mpf_t a_current;
 mpf_t b_current;
@@ -25,7 +25,7 @@ void *myfunc2(void *myvar);
 void *myfunc3(void *myvar);
 
 int main (int argc, char* argv[]){
-    int iteracoes = pow(10,2);
+    int iteracoes = pow(10,1);
     int i, k, j;
     int THREADS_MAX = 4;
 
