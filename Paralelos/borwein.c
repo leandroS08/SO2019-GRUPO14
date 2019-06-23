@@ -27,7 +27,7 @@ int main()
         for (i = 0; i < THREADS_MAX; i++){
             thread_args[i] = j;
             j = j + 1.0;
-            printf("Valor enviado para a thread: %d\n", i);
+            //printf("Valor enviado para a thread: %d\n", i);
             pthread_create(&threads[i], NULL, myfunc, (void *) &thread_args[i]);
         }
         for (i = 0; i < THREADS_MAX; i++){
