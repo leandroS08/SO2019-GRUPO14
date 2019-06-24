@@ -20,7 +20,7 @@ void blackScholes()
     pthread_t threads[THREADS_MAX];
     double thread_args[THREADS_MAX];
 
-    FILE *myfile = fopen("entrada_blackscholes.txt", "r");;
+    /*FILE *myfile = fopen("entrada_blackscholes.txt", "r");;
     for(i=0; i<6; i++)
     {
         if(i==0) fscanf(myfile,"%lf",&S);
@@ -30,9 +30,12 @@ void blackScholes()
         if(i==4) fscanf(myfile,"%lf",&T);
         if(i==5) fscanf(myfile,"%d",&M);
     }
-    fclose(myfile);
+    fclose(myfile);*/
 
-    printf(" Entrada: ( S = %.2lf, E = %.2lf, r = %.2lf, sigma = %.2lf, T = %.2lf, M = %d ) \n", S, E, r, sigma, T, M);
+    //printf("Digite as entradas (S, E, r, sigma, T, M): ");
+    scanf("%lf %lf %lf %lf %lf %d", &S, &E, &r, &sigma, &T, &M);
+
+    //printf(" Entrada: ( S = %.2lf, E = %.2lf, r = %.2lf, sigma = %.2lf, T = %.2lf, M = %d ) \n", S, E, r, sigma, T, M);
 
     for(k = 0; k < M/THREADS_MAX; k++){
         j = THREADS_MAX*k;

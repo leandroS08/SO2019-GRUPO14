@@ -16,13 +16,9 @@ void *myfunc(void *myvar);
 int main()
 {
     srand(time(NULL));
-<<<<<<< HEAD
-    int iteracoes = pow(10,7);
-=======
-    int iteracoes = pow(10,3);
->>>>>>> 352503e1aafc650171aaaf975daae4f91a704caf
+    int iteracoes = pow(10,8);
     int i, k, j;
-    int THREADS_MAX = 1000;
+    int THREADS_MAX = 100;
 
     pthread_t threads[THREADS_MAX];
     double thread_args[THREADS_MAX];
@@ -54,7 +50,7 @@ int main()
     mpf_mul_ui (pi, pi, 4.0);
 
     printf("VALOR DO PI:");
-    mpf_out_str(stdout,10,6,pi);
+    mpf_out_str(stdout,10,7,pi);
     printf("\n");
 
     return 0;

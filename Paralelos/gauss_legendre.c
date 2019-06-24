@@ -25,7 +25,7 @@ void *myfunc2(void *myvar);
 void *myfunc3(void *myvar);
 
 int main (int argc, char* argv[]){
-    int iteracoes = pow(10,1);
+    int iteracoes = pow(10,2);
     int i, k, j;
     int THREADS_MAX = 4;
 
@@ -89,7 +89,7 @@ int main (int argc, char* argv[]){
     mpf_div(pi, float_aux, float_aux2);
 
     printf("VALOR DO PI:");
-    mpf_out_str(stdout,10,6,pi);
+    mpf_out_str(stdout,10,7,pi);
     printf("\n");
 
     mpf_clear(a_current);
