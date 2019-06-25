@@ -13,8 +13,10 @@ void *myfunc(void *myvar);
 int main()
 {
     int k, i, j;
+
     int iteracoes = pow(10,5);
     int THREADS_MAX = 1000;
+
 
     mpf_init2 (pi, PRECISION);
     mpf_set_d (pi, 0.0);
@@ -36,7 +38,7 @@ int main()
     }
 
     printf("VALOR DO PI:");
-    mpf_out_str(stdout,10,6,pi);
+    mpf_out_str(stdout,10,7,pi);
     printf("\n");
     
     return 0;

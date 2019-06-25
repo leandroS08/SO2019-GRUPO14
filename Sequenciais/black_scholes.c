@@ -9,7 +9,7 @@ double blackScholes()
     int M;
     int i;
 
-    FILE *myfile = fopen("entrada_blackscholes.txt", "r");;
+    /*FILE *myfile = fopen("entrada_blackscholes.txt", "r");;
     for(i=0; i<6; i++)
     {
         if(i==0) fscanf(myfile,"%lf",&S);
@@ -19,7 +19,10 @@ double blackScholes()
         if(i==4) fscanf(myfile,"%lf",&T);
         if(i==5) fscanf(myfile,"%d",&M);
     }
-    fclose(myfile);
+    fclose(myfile);*/
+
+    //printf("Digite as entradas (S, E, r, sigma, T, M): ");
+    scanf("%lf %lf %lf %lf %lf %d", &S, &E, &r, &sigma, &T, &M);
 
     //printf(" Entrada: ( S = %.2lf, E = %.2lf, r = %.2lf, sigma = %.2lf, T = %.2lf, M = %d ) \n", S, E, r, sigma, T, M);
 

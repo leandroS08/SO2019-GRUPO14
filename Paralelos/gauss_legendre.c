@@ -6,7 +6,7 @@
 #include <gmp.h>
 #include <pthread.h>
 
-#define PRECISION 100000
+#define PRECISION 1000000000
 
 mpf_t a_current;
 mpf_t b_current;
@@ -90,7 +90,7 @@ int main (int argc, char* argv[]){
     mpf_div(pi, float_aux, float_aux2);
 
     printf("VALOR DO PI:");
-    mpf_out_str(stdout,10,6,pi);
+    mpf_out_str(stdout,10,7,pi);
     printf("\n");
 
     mpf_clear(a_current);
