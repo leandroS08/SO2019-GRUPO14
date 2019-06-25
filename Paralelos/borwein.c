@@ -13,8 +13,8 @@ void *myfunc(void *myvar);
 int main()
 {
     int k, i, j;
-    int iteracoes = pow(10,3);
-    int THREADS_MAX = 10;
+    int iteracoes = pow(10,5);
+    int THREADS_MAX = 1000;
 
     mpf_init2 (pi, PRECISION);
     mpf_set_d (pi, 0.0);

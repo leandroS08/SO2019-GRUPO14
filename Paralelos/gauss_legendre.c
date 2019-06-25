@@ -21,13 +21,11 @@ mpf_t float_aux2;
 
 void *myfunc0(void *myvar);
 void *myfunc1(void *myvar);
-void *myfunc2(void *myvar);
-void *myfunc3(void *myvar);
 
 int main (int argc, char* argv[]){
-    int iteracoes = pow(10,2);
+    int iteracoes = pow(10,3);
     int i, k, j;
-    int THREADS_MAX = 4;
+    int THREADS_MAX = 2;
 
     pthread_t threads[THREADS_MAX];
     double thread_args[THREADS_MAX];
@@ -60,18 +58,21 @@ int main (int argc, char* argv[]){
     mpf_init2 (float_aux2, PRECISION);
 
     for(k = 0; k < iteracoes/THREADS_MAX; k++){
-        j = THREADS_MAX*k;
-        j = j + 1.0;
         pthread_create(&threads[0], NULL, myfunc0, NULL);
         pthread_create(&threads[1], NULL, myfunc1, NULL);
-        pthread_create(&threads[2], NULL, myfunc2, NULL);
-        pthread_create(&threads[3], NULL, myfunc3, NULL);
+       //pthread_create(&threads[2], NULL, myfunc2, NULL);
+        //pthread_create(&threads[3], NULL, myfunc3, NULL);
        
         pthread_join(threads[0], NULL);
         pthread_join(threads[1], NULL);
-        pthread_join(threads[2], NULL);
-        pthread_join(threads[3], NULL);
+       // pthread_join(threads[2], NULL);
+        //pthread_join(threads[3], NULL);
 
+
+        mpf_mul(float_aux2, float_aux2, p_current);
+        mpf_sub(t_next, t_current, float_aux2);
+
+        mpf_mul_ui(p_next, p_current, 2);
 
         mpf_set(a_current, a_next);
         mpf_set(b_current, b_next);
@@ -108,6 +109,9 @@ int main (int argc, char* argv[]){
 void *myfunc0(void *myvar){
     mpf_add(a_next, a_current, b_current); // a + b
     mpf_div_ui(a_next, a_next, 2); // (a+b)/2
+    mpf_sub(float_aux2, a_current, a_next); // a - a_next
+    mpf_pow_ui(float_aux2, float_aux2, 2); // (a + a_next)^2
+
 
     return NULL;
 }
@@ -119,17 +123,3 @@ void *myfunc1(void *myvar){
     return NULL;
 }
 
-void *myfunc2(void *myvar){
-    mpf_sub(float_aux2, a_current, a_next); // a - a_next
-    mpf_pow_ui(float_aux2, float_aux2, 2); // (a + a_next)^2
-    mpf_mul(float_aux2, float_aux2, p_current);
-    mpf_sub(t_next, t_current, float_aux2);
-
-    return NULL;
-}
-
-void *myfunc3(void *myvar){
-    mpf_mul_ui(p_next, p_current, 2);
-
-    return NULL;
-}
